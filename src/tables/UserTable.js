@@ -1,7 +1,7 @@
 import React from 'react'
 import './UserTable.css';
 
-const UserTable = ({ users }) => {
+const UserTable = ({ users, deleteUser }) => {
     return (
         <table>
             <thead>
@@ -17,7 +17,9 @@ const UserTable = ({ users }) => {
                         <tr key={user.id}>
                             <td>{user.name}</td>
                             <td>{user.userName}</td>
-                            <td><button className='button-styles'>Botón</button></td>
+                            <td>
+                                <button className='button-styles' onClick={()=>deleteUser(user.id)}>Delete</button>
+                            </td>
                         </tr>
                     ))
                 }

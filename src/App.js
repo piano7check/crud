@@ -12,6 +12,10 @@ function App() {
     { id: 4, name: "Gustavo", userName: "Gustavo1"}
   ];
 
+  const deleteUser = id => {
+    setUsers(users.filter(user => user.id !== id))
+  };
+
   const initialFormState = { id: null, name: "", userName: ""};
 
   const [users, setUsers] = useState(usersData);
@@ -23,6 +27,7 @@ function App() {
       <h1>CRUD DE USUARIOS</h1>
       <UserTable 
         users={users}
+        deleteUser={deleteUser}
       />
     </div>
   );
